@@ -1,6 +1,6 @@
 # TASKS — open-data-datasheets
 
-> Status: Draft · Version: 0.3.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
+> Status: Draft · Version: 0.4.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
 
 ## How these tasks map to Elyos
 
@@ -296,3 +296,207 @@ committed `gate-002` artifact before work proceeds — listing it here does not 
   "outputLicense": "CC-BY-4.0"
 }
 ```
+
+---
+
+## Per-dataset processing backlog (all catalog entries)
+
+Generated from [DATASET-CATALOG.md](./DATASET-CATALOG.md). Every catalog entry is turned into a
+**datasheet processing task** here, EXCEPT the 4 policy-excluded entries (listed at the end).
+These tasks are the project's scaling backlog: they are pulled into milestones M2→steady-state by
+**priority**, and each is blocked on the catalog triage + per-dataset gate before work starts.
+
+**Shared task template** (every row below instantiates this):
+
+```
+project: open-data-datasheets   lane: donated   type: data   deliverable: document
+status: open   urgent: false   verifiedNeed: false   requestor: TO BE SECURED
+outputLicense: CC-BY-4.0 (the datasheet) — NOT the source dataset's licence
+output: /output/<task-id>-datasheet.md
+acceptanceCriteria:
+  - Source licence verified to permit derivatives (cited clause/URL) + recorded; gate-002 artifact attached
+  - PII pass: no personal/identifying fields documented or sampled; bounded-access protocol followed
+  - Data dictionary (every field: name, type, units, allowed values, nulls) from <=1,000-row sample
+  - Provenance + attribution + licence-snapshot (hash + archived copy) recorded
+  - Datasheet-for-Datasets writeup + Croissant metadata produced and schema-valid
+  - A small validation script + data-quality report; documentation only — data never hosted/republished
+```
+
+**Priority:** A = clearly-permissive + low/no-PII (good-first-deed). B = licence `Verify`/share-alike
+(blocked on `policy-022`). C = medium-PII / sensitive (riskTier medium, reviewer required).
+
+### Government budgets & spending
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-budget-001 | cat-budget-001 | Spending over £25,000 (departmental transparency) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-budget-002 | cat-budget-002 | USAspending.gov federal award & spending data | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-budget-003 | cat-budget-003 | EU Financial Transparency System (FTS) | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-budget-004 | cat-budget-004 | Budget de l'État (PLF / execution data) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-budget-005 | cat-budget-005 | BOOST public expenditure database | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Census & demographics
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-census-001 | cat-census-001 | American Community Survey (ACS) summary tables | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-census-002 | cat-census-002 | Census 2021 (England & Wales) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-census-003 | cat-census-003 | Population & demography statistics | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-census-004 | cat-census-004 | World Population Prospects (WPP) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-census-005 | cat-census-005 | WorldPop gridded population | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Public health
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-health-001 | cat-health-001 | CDC WONDER (mortality, natality, etc.) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-health-002 | cat-health-002 | Our World in Data — health datasets | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-health-003 | cat-health-003 | NHS England published statistics | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-health-005 | cat-health-005 | Global Burden of Disease (GBD) results | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-health-006 | cat-health-006 | ECDC surveillance & disease data | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+
+### Environment & climate
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-climate-001 | cat-climate-001 | Global Historical Climatology Network (GHCN) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-climate-002 | cat-climate-002 | ERA5 reanalysis | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-climate-003 | cat-climate-003 | GISTEMP surface temperature analysis | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-climate-004 | cat-climate-004 | CO2 & Greenhouse Gas Emissions | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-climate-005 | cat-climate-005 | Global Carbon Budget | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Air quality
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-airq-001 | cat-airq-001 | OpenAQ global air-quality measurements | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-airq-002 | cat-airq-002 | Air Quality System (AQS) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-airq-003 | cat-airq-003 | European air-quality data | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-airq-005 | cat-airq-005 | CAMS atmosphere monitoring (reanalysis/forecast) | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Energy
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-energy-001 | cat-energy-001 | EIA energy data (Open Data API) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-energy-002 | cat-energy-002 | ENTSO-E Transparency Platform | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-energy-003 | cat-energy-003 | Energy datasets | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-energy-004 | cat-energy-004 | UK energy statistics (DUKES etc.) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-energy-005 | cat-energy-005 | Ember electricity & power-sector data | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Transport & mobility
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-transport-001 | cat-transport-001 | GTFS transit feeds (catalog) | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-transport-002 | cat-transport-002 | Road Safety Data (STATS19) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-transport-003 | cat-transport-003 | Fatality Analysis Reporting System (FARS) | C | medium | cleared (confirm at gate-002) | catalog-025 |
+| ds-transport-004 | cat-transport-004 | TLC Trip Record Data | C | medium | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-transport-005 | cat-transport-005 | Transport statistics | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Education
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-edu-001 | cat-edu-001 | College Scorecard | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-edu-002 | cat-edu-002 | UIS education statistics | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-edu-003 | cat-edu-003 | EdStats education indicators | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-edu-004 | cat-edu-004 | PISA assessment data | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-edu-005 | cat-edu-005 | Get Information about Schools (GIAS) | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Justice & crime
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-justice-001 | cat-justice-001 | Police recorded crime (street-level) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-justice-002 | cat-justice-002 | Crime Data Explorer (UCR/NIBRS) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-justice-003 | cat-justice-003 | Bureau of Justice Statistics data | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-justice-004 | cat-justice-004 | Crime & criminal justice statistics | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-justice-005 | cat-justice-005 | Stanford Open Policing Project | C | medium | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+
+### Geospatial & boundaries
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-geo-001 | cat-geo-001 | OpenStreetMap planet data | B | low | share-alike → policy-022 | catalog-025, policy-022 |
+| ds-geo-002 | cat-geo-002 | Natural Earth vector/raster | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-geo-004 | cat-geo-004 | TIGER/Line shapefiles | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-geo-005 | cat-geo-005 | geoBoundaries global admin boundaries | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Economy & trade
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-econ-001 | cat-econ-001 | World Development Indicators (WDI) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-econ-002 | cat-econ-002 | IMF macroeconomic databases (IFS/WEO etc.) | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-econ-003 | cat-econ-003 | UN Comtrade international trade | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-econ-004 | cat-econ-004 | National accounts & macro indicators | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-econ-005 | cat-econ-005 | Labor statistics (CPI, employment) | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Agriculture & food
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-agri-001 | cat-agri-001 | FAOSTAT | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-agri-002 | cat-agri-002 | NASS Quick Stats | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-agri-003 | cat-agri-003 | FoodData Central | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-agri-004 | cat-agri-004 | Open Food Facts | B | low | share-alike → policy-022 | catalog-025, policy-022 |
+| ds-agri-005 | cat-agri-005 | EU agri-food data portal | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+
+### Housing
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-housing-001 | cat-housing-001 | Price Paid Data (property transactions) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-housing-002 | cat-housing-002 | HUD open data (housing programs) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-housing-003 | cat-housing-003 | HMDA mortgage data | C | medium | cleared (confirm at gate-002) | catalog-025 |
+| ds-housing-004 | cat-housing-004 | UK House Price Index | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-housing-005 | cat-housing-005 | Housing statistics | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Elections
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-elections-001 | cat-elections-001 | US election returns (precinct/county/state) | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-elections-002 | cat-elections-002 | UK election results | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-elections-003 | cat-elections-003 | FEC campaign-finance data | C | medium | cleared (confirm at gate-002) | catalog-025 |
+| ds-elections-004 | cat-elections-004 | OpenElections results | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-elections-005 | cat-elections-005 | EU / European Parliament election data | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+
+### Science (biodiversity, astronomy, genomics)
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-science-001 | cat-science-001 | GBIF species occurrence data | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-science-002 | cat-science-002 | NASA Exoplanet Archive | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-science-003 | cat-science-003 | Sloan Digital Sky Survey (SDSS) | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-science-004 | cat-science-004 | Ensembl genome annotation | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-science-005 | cat-science-005 | GenBank sequence database | A | low | cleared (confirm at gate-002) | catalog-025 |
+| ds-science-006 | cat-science-006 | Gaia mission astrometry | A | low | cleared (confirm at gate-002) | catalog-025 |
+
+### Humanitarian
+
+| Task ID | Catalog ID | Dataset | Priority | Risk | Licence gate | Depends on |
+| --- | --- | --- | --- | --- | --- | --- |
+| ds-humanitarian-001 | cat-humanitarian-001 | Humanitarian Data Exchange (HDX) datasets | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-humanitarian-002 | cat-humanitarian-002 | ACLED conflict events | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-humanitarian-003 | cat-humanitarian-003 | Refugee population statistics | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-humanitarian-004 | cat-humanitarian-004 | INFORM Risk Index | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-humanitarian-005 | cat-humanitarian-005 | ReliefWeb data (disasters, reports) | B | low | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+| ds-humanitarian-006 | cat-humanitarian-006 | Displacement Tracking Matrix (DTM) | C | medium | Verify → gate-002 + policy-022 | catalog-025, policy-022 |
+
+### Excluded — no datasheet task created
+
+| Catalog ID | Dataset | Reason |
+| --- | --- | --- |
+| cat-census-006 | IPUMS census micro-data (international/USA) | high-PII micro-data |
+| cat-health-004 | Global Health Observatory (GHO) | non-commercial (policy-022) |
+| cat-airq-004 | WHO Ambient Air Quality Database | non-commercial (policy-022) |
+| cat-geo-003 | GADM administrative areas | non-commercial (policy-022) |
+
+### Backlog rollup
+
+- **80 processing tasks** generated from 84 catalog entries (4 excluded).
+- By priority: **A (do-first, clearly-permissive + low PII): 52** · **B (gate/policy-022 first): 22** · **C (medium-PII, reviewer): 6**.
+- Scheduling: Priority-A feeds M2/M3; B unblocks as `policy-022` decisions land; C requires the License+PII reviewer.
+  No silent caps — the full 80-task backlog is listed; milestone targets in PLAN.md pull from it by throughput.

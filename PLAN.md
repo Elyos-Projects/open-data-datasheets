@@ -1,6 +1,6 @@
 # PLAN — open-data-datasheets
 
-> Status: Draft · Version: 0.3.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
+> Status: Draft · Version: 0.4.0 · Last updated: 2026-06-28 · Owner: TBD (maintainer) · Lane: donated
 
 ## Executive summary
 
@@ -354,6 +354,23 @@ sized-but-unscheduled tasks and one complete example Task JSON are included ther
 dataset backlog** that feeds the per-dataset documentation tasks lives in `DATASET-CATALOG.md`;
 `TASKS.md` includes a catalog-triage task and example per-dataset tasks drawn from real catalog
 entries (`cat-…` IDs), each mapped to the Task JSON schema.
+
+**Per-dataset processing backlog (full).** `TASKS.md` now also carries a *Per-dataset processing
+backlog* generated from every catalog entry: **80 datasheet tasks** (4 of the 84 catalog entries are
+policy-excluded — 2 non-commercial, 1 non-redistributable, 1 high-PII micro-data). Each task
+instantiates a shared datasheet template (data dictionary + provenance + licence snapshot +
+Datasheet-for-Datasets + Croissant metadata + validation script; documentation only). The backlog is
+prioritized so throughput is unambiguous:
+
+- **Priority A — 52 tasks:** clearly-permissive licence (OGL v3 / CC0 / CC-BY / US-gov PD / Copernicus
+  / Etalab) + none/low PII. These are the *good-first-deed* engine.
+- **Priority B — 22 tasks:** licence marked `Verify` or share-alike (ODbL) — blocked on the per-dataset
+  gate (`gate-002`) and the NC/share-alike policy (`policy-022`) before work starts.
+- **Priority C — 6 tasks:** medium-PII / sensitive datasets (e.g. FARS, TLC trips, FEC donors, IOM DTM)
+  — `riskTier: medium`, mandatory License+PII reviewer sign-off.
+
+No silent caps: the entire 80-task backlog is enumerated; milestone targets below pull from it by
+throughput rather than truncating it.
 
 ## Governance, roles & stakeholders
 
