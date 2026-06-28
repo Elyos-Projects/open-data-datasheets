@@ -1,0 +1,34 @@
+{
+  "id": "ds-science-002",
+  "title": "Datasheet for NASA Exoplanet Archive",
+  "project": "open-data-datasheets",
+  "type": "data",
+  "lane": "donated",
+  "priority": "medium",
+  "domain": [
+    "public-data",
+    "astronomy"
+  ],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "medium",
+  "status": "open",
+  "context": "Authoritative confirmed-exoplanet catalog; public domain, intricate column semantics. Publisher: NASA / IPAC, Caltech. Source license: US-gov public domain (first-pass: permits derivatives — confirm at the gate). Candidate catalog id: cat-science-002.",
+  "objective": "Produce a documentation datasheet for \"NASA Exoplanet Archive\": a data dictionary, provenance + attribution, a license record, a Datasheet-for-Datasets writeup, Croissant metadata, and a small validation script. Documentation only — never host, transform, or republish the data.",
+  "acceptanceCriteria": [
+    "Source license verified to permit derivatives (cite the exact clause/URL) and recorded; per-dataset gate artifact attached",
+    "PII pass: no personal/identifying fields documented or sampled; bounded-access protocol followed (header/streamed reads, <=1000-row sample, local-only, ephemeral)",
+    "Data dictionary: every field documented (name, type, units, allowed values, null handling) from the sample",
+    "Provenance + required attribution + license snapshot (hash + archived copy of the license text) recorded",
+    "Datasheet-for-Datasets writeup completed and a Croissant (JSON-LD) metadata file produced and schema-valid",
+    "A small validation script + a data-quality report; documentation only — the dataset is never hosted, mirrored, or republished"
+  ],
+  "resources": [
+    "https://exoplanetarchive.ipac.caltech.edu/"
+  ],
+  "output": "/output/ds-science-002-datasheet.md",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
