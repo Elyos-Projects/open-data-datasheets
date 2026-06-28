@@ -1,0 +1,33 @@
+{
+  "id": "open-data-datasheets-template-001",
+  "title": "Documentation template + canonical metadata model",
+  "project": "open-data-datasheets",
+  "type": "writing",
+  "lane": "donated",
+  "priority": "high",
+  "domain": ["public-data", "open-science", "civic"],
+  "riskTier": "low",
+  "urgent": false,
+  "deliverable": "document",
+  "tokenEstimate": "small",
+  "status": "open",
+  "context": "Public open datasets are often unusable because they lack data dictionaries, provenance, clear licensing, and machine-readable metadata. Before documenting any specific dataset, the project needs one reusable template and a canonical metadata model that all other outputs (Datasheet, Croissant ML metadata, portal-specific metadata) are projections of. Deliverable is documentation, never the data.",
+  "objective": "Create the reusable documentation template and the canonical metadata model that every per-dataset task will use.",
+  "acceptanceCriteria": [
+    "Canonical metadata model documents all fields: title, publisher, sourceUrl, license {id, url, permitsDerivatives, snapshotRef}, provenance {retrievedAt, version, updateCadence, attribution}, pii {present, anonymized, notes}, fields[] {name, type, units, allowedValues, nullable, description, caveats}, knownIssues[], examples[].",
+    "Markdown template covers data dictionary, provenance record, license record, known-issues, worked examples, and the full Datasheets-for-Datasets questionnaire.",
+    "Template explicitly states the deliverable is documentation, not data, and that documentation output is licensed CC-BY-4.0.",
+    "At least one filled-in worked example skeleton is included to guide contributors.",
+    "pnpm build && pnpm test && pnpm lint pass for any committed tooling; commit is DCO signed-off."
+  ],
+  "resources": [
+    "C:\\code\\elyos\\planning\\projects\\open-data-datasheets\\PLAN.md",
+    "C:\\code\\elyos\\governance\\proposals\\open-data-datasheets.md",
+    "Datasheets for Datasets (Gebru et al.)",
+    "Croissant ML metadata specification"
+  ],
+  "output": "A documentation template plus a canonical metadata model definition, committed to the project repo and ready for reuse by per-dataset documentation tasks.",
+  "requestor": "TO BE SECURED",
+  "verifiedNeed": false,
+  "outputLicense": "CC-BY-4.0"
+}
